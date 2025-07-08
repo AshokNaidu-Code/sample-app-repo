@@ -22,6 +22,6 @@ jobs:
            docker rm -f ops-odyssey || true
            docker pull ashoknallam/ops-odyssey-flask:v1
            docker run -d -p 80:5000 --name ops-odyssey ashoknallam/ops-odyssey-flask:v1
-           EOF
+        EOF
 
     
