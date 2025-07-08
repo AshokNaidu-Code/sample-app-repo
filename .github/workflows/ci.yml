@@ -19,10 +19,9 @@ jobs:
 
     - name: Deploy to EC2
       run: |
-         ssh -o StrictHostKeyChecking=no -i key.pem ${{ secrets.EC2_USER }}@${{ secrets.EC2_HOST }} << 'EOF'
-         docker ps -q --filter "publish=80" | xargs -r docker stop
-         docker ps -aq --filter "publish=80" | xargs -r docker rm
-         docker pull ashoknallam/ops-odyssey-flask:v1
-         docker run -d -p 80:5000 --name ops-odyssey ashoknallam/ops-odyssey-flask:v1
-        EOF
-
+        ssh -o StrictHostKeyChecking=no -i key.pem ${{ secrets.EC2_USER }}@${{ secrets.EC2_HOST }} << 'EOF'
+        docker ps -q --filter "publish=80" | xargs -r docker stop
+        docker ps -aq --filter "publish=80" | xargs -r docker rm
+        docker pull ashoknallam/ops-odyssey-flask:v1
+        docker run -d -p 80:5000 --name ops-odyssey ashoknallam/ops-odyssey-flask:v1
+      EOF
